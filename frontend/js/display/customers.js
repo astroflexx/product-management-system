@@ -1,23 +1,25 @@
 function displayCustomers(customers) {
-    let body = $('body');
-
+    const body = $('body');
     body.empty();
 
-    let mainDiv = $('<div>').text('ALL CUSTOMERS: ');
+    const container = $('<div>').addClass('container');
+    const title = $('<h1>').text('ALL CUSTOMERS');
+    container.append(title);
 
-    customers.forEach(function (customer) {
-        let div = $('<div>').html(`
-            <p>First Name: ${customer.first_name}</p>
-            <p>Last Name: ${customer.last_name}</p>
-            <p>Phone Number: ${customer.phone_number}</p>
-            <p>Alternate Phone Number: ${customer.alt_phone_number}</p>
-            <p>Address: ${customer.address}</p>
-            <p>Email: ${customer.email}</p>
-        `);
-        mainDiv.append(div);
+    customers.forEach(function(customer) {
+        const customerCard = $('<div>').addClass('customer-card');
+        
+        const name = $('<h2>').text(`${customer.first_name} ${customer.last_name}`);
+        const phone = $('<p>').text(`Phone Number: ${customer.phone_number}`);
+        const altPhone = $('<p>').text(`Alternate Phone Number: ${customer.alt_phone_number}`);
+        const address = $('<p>').text(`Address: ${customer.address}`);
+        const email = $('<p>').text(`Email: ${customer.email}`);
+        
+        customerCard.append(name, phone, altPhone, address, email);
+        container.append(customerCard);
     });
 
-    body.append(mainDiv);
+    body.append(container);
 }
 
 export default displayCustomers;
