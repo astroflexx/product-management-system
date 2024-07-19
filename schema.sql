@@ -1,4 +1,4 @@
-CREATE DATABASE product_management_system;
+-- CREATE DATABASE product_management_system;
 USE product_management_system;
 
 -- Create customers table

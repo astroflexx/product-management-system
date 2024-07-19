@@ -3,20 +3,52 @@ function displayShipments(shipments) {
 
     body.empty();
 
-    let mainDiv = $('<div>').text('ALL SHIPMENTS: ');
+    let container = $('<div>').addClass('entity-container');
+    let header = $('<div>').addClass('entity-header').append(
+        $('<h2>').text('ALL SHIPMENTS:')
+    );
 
-    shipments.forEach(function (shipment) {
-        let div = $('<div>').html(`
-            <p>Shipment ID: ${shipment.shipment_id}</p>
-            <p>Shipment Date: ${shipment.shipment_date}</p>
-            <p>Status: ${shipment.status}</p>
-            <p>Actual Arrival Date: ${shipment.actual_arrival_date}</p>
-            <p>Estimated Arrival Date: ${shipment.est_arrival_date}</p>
-        `);
-        mainDiv.append(div);
+    container.append(header);
+
+    shipments.forEach(shipment => {
+        let card = $('<div>').addClass('entity-card');
+
+        card.append(
+            $('<h3>').text(`Shipment ID: ${shipment.shipment_id}`)
+        );
+
+        card.append(
+            $('<div>').addClass('detail').append(
+                $('<label>').text('Shipment Date:'),
+                $('<span>').text(shipment.shipment_date)
+            )
+        );
+
+        card.append(
+            $('<div>').addClass('detail').append(
+                $('<label>').text('Status:'),
+                $('<span>').text(shipment.status)
+            )
+        );
+
+        card.append(
+            $('<div>').addClass('detail').append(
+                $('<label>').text('Estimated Arrival Date:'),
+                $('<span>').text(shipment.est_arrival_date)
+            )
+        );
+
+        card.append(
+            $('<div>').addClass('detail').append(
+                $('<label>').text('Actual Arrival Date:'),
+                $('<span>').text(shipment.actual_arrival_date)
+            )
+        );
+
+        container.append(card);
     });
 
-    body.append(mainDiv);
+    body.append(container);
 }
 
 export default displayShipments;

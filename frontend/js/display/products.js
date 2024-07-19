@@ -3,21 +3,59 @@ function displayProducts(products) {
 
     body.empty();
 
-    let mainDiv = $('<div>').text('ALL PRODUCTS: ');
+    let container = $('<div>').addClass('entity-container');
+    let header = $('<div>').addClass('entity-header').append(
+        $('<h2>').text('ALL PRODUCTS:')
+    );
 
-    products.forEach(function (product) {
-        let div = $('<div>').html(`
-            <p>Product ID: ${product.product_id}</p>
-            <p>Name: ${product.name}</p>
-            <p>Description: ${product.description}</p>
-            <p>Quantity Available: ${product.quantity_available}</p>
-            <p>Supplier ID: ${product.supplier_id}</p>
-            <p>Order ID: ${product.order_id}</p>
-        `);
-        mainDiv.append(div);
+    container.append(header);
+
+    products.forEach(product => {
+        let card = $('<div>').addClass('entity-card');
+
+        card.append(
+            $('<h3>').text(`Product ID: ${product.product_id}`)
+        );
+
+        card.append(
+            $('<div>').addClass('detail').append(
+                $('<label>').text('Name:'),
+                $('<span>').text(product.name)
+            )
+        );
+
+        card.append(
+            $('<div>').addClass('detail').append(
+                $('<label>').text('Description:'),
+                $('<span>').text(product.description)
+            )
+        );
+
+        card.append(
+            $('<div>').addClass('detail').append(
+                $('<label>').text('Quantity Available:'),
+                $('<span>').text(product.quantity_available)
+            )
+        );
+
+        card.append(
+            $('<div>').addClass('detail').append(
+                $('<label>').text('Supplier ID:'),
+                $('<span>').text(product.supplier_id)
+            )
+        );
+
+        card.append(
+            $('<div>').addClass('detail').append(
+                $('<label>').text('Order ID:'),
+                $('<span>').text(product.order_id)
+            )
+        );
+
+        container.append(card);
     });
 
-    body.append(mainDiv);
+    body.append(container);
 }
 
 export default displayProducts;

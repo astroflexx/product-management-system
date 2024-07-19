@@ -1,22 +1,51 @@
 function displayCustomers(customers) {
-    const body = $('body');
+    let body = $('body');
+
     body.empty();
 
-    const container = $('<div>').addClass('container');
-    const title = $('<h1>').text('ALL CUSTOMERS');
-    container.append(title);
+    let container = $('<div>').addClass('entity-container');
+    let header = $('<div>').addClass('entity-header').append(
+        $('<h2>').text('ALL CUSTOMERS:')
+    );
+    
+    container.append(header);
 
-    customers.forEach(function(customer) {
-        const customerCard = $('<div>').addClass('customer-card');
+    customers.forEach(customer => {
+        let card = $('<div>').addClass('entity-card');
+
+        card.append(
+            $('<h3>').text(`${customer.first_name} ${customer.last_name}`)
+        );
+
+        card.append(
+            $('<div>').addClass('detail').append(
+                $('<label>').text('Phone Number:'),
+                $('<span>').text(customer.phone_number)
+            )
+        );
         
-        const name = $('<h2>').text(`${customer.first_name} ${customer.last_name}`);
-        const phone = $('<p>').text(`Phone Number: ${customer.phone_number}`);
-        const altPhone = $('<p>').text(`Alternate Phone Number: ${customer.alt_phone_number}`);
-        const address = $('<p>').text(`Address: ${customer.address}`);
-        const email = $('<p>').text(`Email: ${customer.email}`);
-        
-        customerCard.append(name, phone, altPhone, address, email);
-        container.append(customerCard);
+        card.append(
+            $('<div>').addClass('detail').append(
+                $('<label>').text('Alternate Phone Number:'),
+                $('<span>').text(customer.alt_phone_number)
+            )
+        );
+
+        card.append(
+            $('<div>').addClass('detail').append(
+                $('<label>').text('Address:'),
+                $('<span>').text(customer.address)
+            )
+        );
+
+        card.append(
+            $('<div>').addClass('detail').append(
+                $('<label>').text('Email:'),
+                $('<span>').text(customer.email)
+            )
+        );
+
+        container.append(card);
     });
 
     body.append(container);

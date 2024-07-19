@@ -1,56 +1,271 @@
+@font-face {
+    font-family: 'JFont';
+    src: url('../../font/Audrey-Bold.otf');
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f9;
+
+    background-image: url('../../background.jpeg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.container {
-    max-width: 800px;
-    margin: 50px auto;
+header {
+    background-color: #007BFF;
+    color: white;
     padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-h1 {
     text-align: center;
-    color: #333;
-    margin-bottom: 20px;
 }
 
-.customer-card {
-    background-color: #fafafa;
-    border: 1px solid #ddd;
+header h1 {
+    margin: 0;
+    font-size: 4em;
+    font-family: 'JFont';
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.metrics {
+    background-size: cover;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.metric-box {
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    width: 30%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.customer-card h2 {
-    margin-top: 0;
+.metric-box h2 {
+    margin-bottom: 10px;
     color: #007BFF;
 }
 
-.customer-card p {
-    margin: 5px 0;
+.metric-box p {
+    font-size: 2em;
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.content-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.content-box h2 {
+    text-align: center;
+    color: #007BFF;
+}
+
+/* Styling for list items in recent orders and shipments */
+.recent-data ul li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.recent-data ul li:hover {
+    background-color: #f5f5f5;
+    transform: translateY(-2px);
+}
+
+/* Additional styling for details within list items */
+.recent-data ul li .details {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.recent-data ul li .details strong {
     color: #555;
 }
 
-button {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    color: #fff;
-    background-color: #007BFF;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+/* Styling for the add-section divs */
+.add-section {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 1rem auto;
+    padding: 1rem;
+    max-width: 800px;
 }
 
-button:hover {
+.add-section h2 {
+    margin-top: 0;
+}
+
+.toggle-form {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.toggle-form:hover {
     background-color: #0056b3;
+}
+
+form {
+    margin-top: 1rem;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+form input,
+form select {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.5rem;
+    width: calc(100% - 1rem);
+    margin-bottom: 0.5rem;
+}
+
+form button {
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+form button:hover {
+    background-color: #218838;
+}
+
+/* Hidden class to hide forms initially */
+.hidden {
+    display: none;
+}
+
+/* General container styling for all entities */
+.entity-container {
+    background-color: #f4f4f9;
+    border-radius: 8px;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+.entity-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.entity-header h2 {
+    color: #333;
+    font-size: 2rem;
+    margin: 0;
+}
+
+/* Styling for each entity card */
+.entity-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.entity-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.entity-card h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.entity-card p {
+    margin: 0.5rem 0;
+    color: #555;
+}
+
+/* Styling for individual entity details */
+.entity-card .detail {
+    margin-bottom: 0.5rem;
+}
+
+.entity-card .detail label {
+    font-weight: bold;
+    color: #333;
+}
+
+.entity-card .detail span {
+    margin-left: 0.5rem;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .metric-box {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .metric-box {
+        width: 100%;
+    }
 }
